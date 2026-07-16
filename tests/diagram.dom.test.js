@@ -82,3 +82,14 @@ test("prefers-reduced-motion skips the stroke-draw animation", () => {
   assert.equal(line.style.transition, "", "no transition scheduled");
   delete globalThis.matchMedia;
 });
+
+test("a throwing matchMedia is treated as motion-allowed, not a crash", () => {
+  globalThis.matchMedia = () => {
+    throw new Error("matchMedia unavailable");
+  };
+  const { host, diagram } = fresh();
+  assert.doesNotThrow(() => diagram.annotate({ anchor: "shell", label: "ok" }));
+  const line = host.querySelector(".callout line");
+  assert.notEqual(line.style.strokeDasharray, "none", "the draw-in still runs");
+  delete globalThis.matchMedia;
+});
