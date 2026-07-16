@@ -1,8 +1,386 @@
-/* Scaffold-stage styling only. Full visual direction lands in BUILD,
-   following docs/DESIGN.md. */
+/* Cable Check — blueprint / technical direction (see docs/DESIGN.md).
+   Navy drafting canvas, cyan schematic lines, amber annotation accents. */
+
+:root {
+  --bg: #0b1524;
+  --surface-1: #122036;
+  --surface-2: #182c49;
+  --text: #e7f1ff;
+  --text-muted: #8ea3c4;
+  --accent: #4fd8e8;
+  --accent-support: #ffb454;
+  --success: #5be18a;
+  --danger: #ff6b6b;
+
+  --font-display: "Space Mono", ui-monospace, "SF Mono", monospace;
+  --font-ui: "Inter", system-ui, -apple-system, sans-serif;
+
+  --radius: 4px;
+  --hair: rgba(79, 216, 232, 0.35);
+  --hair-bright: rgba(79, 216, 232, 0.8);
+  --glow: 0 0 24px rgba(79, 216, 232, 0.18);
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
-  padding: 2rem;
-  font-family: system-ui, sans-serif;
+  min-height: 100dvh;
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--bg);
+  /* Blueprint grid + a soft radial lift so the canvas never reads as flat. */
+  background-image:
+    radial-gradient(120% 90% at 30% 12%, rgba(79, 216, 232, 0.09), transparent 60%),
+    linear-gradient(rgba(79, 216, 232, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 216, 232, 0.06) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 20;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--hair-bright);
+  text-decoration: none;
+  transition: top 150ms var(--ease);
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ---- layout ---------------------------------------------------------- */
+
+.app {
+  min-height: 100dvh;
+  display: flex;
+  align-items: stretch;
+}
+
+.stage {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: center;
+  gap: 24px;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 32px clamp(16px, 4vw, 56px);
+}
+
+.diagram-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.plug-diagram {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  filter: drop-shadow(0 0 18px rgba(79, 216, 232, 0.25));
+}
+
+.card-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- brand ----------------------------------------------------------- */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wordmark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: 0.06em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+.wordmark-accent {
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(79, 216, 232, 0.5);
+}
+
+.tagline {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+/* ---- question card --------------------------------------------------- */
+
+.question-card {
+  position: relative;
+  padding: clamp(20px, 3vw, 32px);
+  background:
+    linear-gradient(180deg, var(--surface-1), var(--surface-2));
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  box-shadow: var(--glow), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+/* Corner ticks — a drafted, clipped-to-a-clipboard detail. */
+.question-card::before,
+.question-card::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--accent);
+  opacity: 0.6;
+}
+.question-card::before {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
+}
+.question-card::after {
+  bottom: 8px;
+  right: 8px;
+  border-left: none;
+  border-top: none;
+}
+
+.step-meta {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.question-prompt {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+  line-height: 1.25;
+  color: var(--text);
+}
+.question-prompt:focus-visible {
+  outline: none;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---- option buttons -------------------------------------------------- */
+
+.option {
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 18px;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    transform 120ms var(--ease),
+    border-color 150ms var(--ease),
+    box-shadow 150ms var(--ease),
+    background 150ms var(--ease);
+}
+.option::before {
+  content: "›";
+  margin-right: 12px;
+  color: var(--accent);
+  font-family: var(--font-display);
+}
+.option:hover {
+  border-color: var(--hair-bright);
+  background: #1d3457;
+  box-shadow: 0 0 16px rgba(79, 216, 232, 0.16);
+}
+.option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.option:active {
+  transform: translateY(1px) scale(0.995);
+  border-color: var(--accent);
+  box-shadow: inset 0 0 12px rgba(79, 216, 232, 0.25);
+}
+.option:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.restart {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.restart::before {
+  content: "↺";
+}
+.restart:hover {
+  background: #6fe6f4;
+  box-shadow: 0 0 20px rgba(79, 216, 232, 0.4);
+}
+
+/* ---- verdict --------------------------------------------------------- */
+
+.verdict-headline {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  line-height: 1.25;
+}
+.verdict-headline:focus-visible {
+  outline: none;
+}
+.verdict-check {
+  color: var(--accent);
+}
+.verdict-missing {
+  color: var(--accent-support);
+}
+.verdict-conservative {
+  color: var(--danger);
+}
+.verdict-any {
+  color: var(--success);
+}
+
+.verdict-detail {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+}
+
+/* ---- mute toggle ----------------------------------------------------- */
+
+.mute-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 15;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  color: var(--text);
+  background: var(--surface-1);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 150ms var(--ease), box-shadow 150ms var(--ease);
+}
+.mute-toggle:hover {
+  border-color: var(--hair-bright);
+  box-shadow: var(--glow);
+}
+.mute-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---- diagram callouts ------------------------------------------------ */
+
+.callout-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.callout-strong .callout-label {
+  font-weight: 700;
+  font-size: 15px;
+}
+.callout-strong circle {
+  animation: pulse 1200ms var(--ease) 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.callout-strong circle {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ---- responsive ------------------------------------------------------ */
+
+@media (max-width: 860px) {
+  .stage {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 16px;
+    padding: 24px clamp(16px, 5vw, 32px);
+  }
+  .diagram-panel {
+    min-height: 32vh;
+    order: -1;
+  }
+  .plug-diagram {
+    max-height: 34vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
 }
