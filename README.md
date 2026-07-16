@@ -1,11 +1,13 @@
 # Cable Check
 
+**▶ Live demo — [apps.charliekrug.com/cable-check](https://apps.charliekrug.com/cable-check/)**
+
 [![CI](https://github.com/ctkrug/cable-check/actions/workflows/ci.yml/badge.svg)](https://github.com/ctkrug/cable-check/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A 10-second quiz for the drawer full of unlabeled USB-C cables. Answer three quick
-questions — what device, what you need (100W charging, 4K video, 10Gbps transfer) — and
-get back exactly one thing: the spec or physical marking to look for on the cable you
+questions (what device, what you need: 100W charging, 4K video, 10Gbps transfer) and
+get back exactly one thing: the physical marking to look for on the cable you
 already own. No spec chart, no article, no database to search.
 
 ## Why
@@ -22,8 +24,8 @@ mess in the first place.
 Tap through three questions (device → need → what's printed on the cable, if anything)
 and land on a single answer like:
 
-> Look for a **lightning-bolt icon** or **5A** printed near the plug — that's your
-> 100 W-capable cable.
+> Look for a **lightning-bolt icon** or **5A** printed near the plug. That's your
+> 100W-capable cable.
 
 No scrolling, no comparison table, no jargon to decode first.
 
@@ -31,7 +33,7 @@ No scrolling, no comparison table, no jargon to decode first.
 
 - **Three-tap decision tree** covering the common real-world needs: fast charging,
   driving a display, fast file transfer, and plain basic charging.
-- **Plain-language verdicts** — the physical marking or icon to look for (a
+- **Plain-language verdicts**: the physical marking or icon to look for (a
   lightning bolt, `5A`, `DP`, `SS10`), never a raw spec name.
 - **"Not sure" escape hatches** at every step, always steering to the safer,
   conservative answer when the input is uncertain.
@@ -55,9 +57,9 @@ npm run dev     # preview site/ locally
 
 ## Status
 
-Core flow complete and QA-hardened — 92 tests at 100% line coverage across every
+Core flow complete and QA-hardened: 100 tests at 100% line coverage across every
 module, covering the pure logic, the DOM flow, adversarial input, and the shell
-contracts. See [`docs/VISION.md`](docs/VISION.md) for
+and marketing contracts. See [`docs/VISION.md`](docs/VISION.md) for
 the design rationale, [`docs/DESIGN.md`](docs/DESIGN.md) for the visual direction,
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the module map, and
 [`docs/BACKLOG.md`](docs/BACKLOG.md) for the build plan. Deployment notes live in
@@ -65,4 +67,8 @@ the design rationale, [`docs/DESIGN.md`](docs/DESIGN.md) for the visual directio
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+MIT. See [`LICENSE`](LICENSE).
+
+---
+
+More of Charlie's projects → [apps.charliekrug.com](https://apps.charliekrug.com)
