@@ -44,10 +44,20 @@ No scrolling, no comparison table, no jargon to decode first.
 Vanilla JavaScript, HTML, and CSS. No build step, no framework, no runtime
 dependencies. A static site that runs by opening `index.html` or serving `site/`.
 
+## Development
+
+```
+npm install
+npm run check   # lint + tests
+npm run dev     # preview site/ locally
+```
+
 ## Status
 
-Early scaffold — see [`docs/VISION.md`](docs/VISION.md) for the full design rationale
-and [`docs/BACKLOG.md`](docs/BACKLOG.md) for the build plan.
+Early scaffold — see [`docs/VISION.md`](docs/VISION.md) for the full design rationale,
+[`docs/DESIGN.md`](docs/DESIGN.md) for the visual direction, and
+[`docs/BACKLOG.md`](docs/BACKLOG.md) for the build plan. Deployment notes live in
+[`docs/DEPLOY.md`](docs/DEPLOY.md).
 
 ## License
 
