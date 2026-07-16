@@ -146,6 +146,16 @@ body {
   font-size: 0.98rem;
 }
 
+.noscript {
+  margin: 0;
+  padding: 16px 18px;
+  max-width: 60ch;
+  color: var(--text);
+  background: var(--surface-1);
+  border: 1px solid var(--accent-support);
+  border-radius: var(--radius);
+}
+
 /* ---- question card --------------------------------------------------- */
 
 .question-card {
