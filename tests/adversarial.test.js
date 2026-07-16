@@ -17,3 +17,22 @@ test("an empty or whitespace need is rejected, not treated as standard", () => {
     assert.throws(() => getVerdict(bad, MARKINGS.PRESENT), /Unknown need/);
   }
 });
+
+test("a malformed marking answer is rejected for every need", () => {
+  for (const need of Object.values(NEEDS)) {
+    for (const bad of [null, "", "  ", "yes", "🔥", 0, {}]) {
+      assert.throws(
+        () => getVerdict(need, bad),
+        /Unknown marking/,
+        `${need} with marking ${String(bad)}`
+      );
+    }
+  }
+});
+
+test("omitting the marking is safe (conservative default), but an explicit null is not", () => {
+  // undefined triggers the default parameter; null is a real, invalid value.
+  assert.equal(getVerdict(NEEDS.CHARGE_FAST).status, "conservative");
+  assert.equal(getVerdict(NEEDS.CHARGE_FAST, undefined).status, "conservative");
+  assert.throws(() => getVerdict(NEEDS.CHARGE_FAST, null), /Unknown marking/);
+});
