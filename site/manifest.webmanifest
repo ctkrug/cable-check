@@ -1,0 +1,16 @@
+{
+  "name": "Cable Check",
+  "short_name": "Cable Check",
+  "description": "A 10-second quiz that tells you which USB-C cable in your drawer to use.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1524",
+  "theme_color": "#0b1524",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
