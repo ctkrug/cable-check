@@ -1,0 +1,8 @@
+/* Scaffold-stage styling only. Full visual direction lands in BUILD,
+   following docs/DESIGN.md. */
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: system-ui, sans-serif;
+}
