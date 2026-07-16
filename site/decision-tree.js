@@ -20,25 +20,22 @@ export const MARKINGS = Object.freeze({
 
 // Per-need facts the verdict copy is generated from. `marking` is the physical
 // thing to look for (never a spec name); `task` describes the job in plain
-// words; `plug` names the part of the plug diagram the annotation points at.
+// words; `fallback` is what an unmarked cable typically can't do.
 const NEED_SPEC = Object.freeze({
   [NEEDS.CHARGE_FAST]: {
     marking: 'a lightning-bolt icon or a "5A" marking',
     task: "fast charging (100W and up)",
     fallback: "usually caps out around 60W",
-    plug: "shell",
   },
   [NEEDS.VIDEO_4K]: {
     marking: 'a "DP" label or a small monitor icon',
     task: "driving a display",
     fallback: "usually carries no video signal at all",
-    plug: "pins",
   },
   [NEEDS.TRANSFER_FAST]: {
     marking: '"SS10", "SS20", or a Thunderbolt (lightning-bolt-in-a-square) icon',
     task: "fast file transfer",
     fallback: "is usually limited to slow USB 2.0 speeds",
-    plug: "pins",
   },
 });
 
