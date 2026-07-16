@@ -1,0 +1,16 @@
+{
+  "name": "cable-check",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A 10-second quiz that tells you which USB-C cable in your drawer to use.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/",
+    "lint": "eslint site tests"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0"
+  },
+  "license": "MIT"
+}
