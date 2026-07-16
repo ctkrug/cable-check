@@ -45,3 +45,28 @@ test("the flow still completes cleanly to a real verdict after the abuse", () =>
   assert.ok(headline, "a verdict renders");
   assert.match(headline.textContent, /5A/, "the verdict is the correct one");
 });
+
+test("a not-sure answer lands on the danger-toned conservative verdict", () => {
+  pick("Check another cable").click();
+  pick("Laptop").click();
+  pick("Driving a display").click();
+  pick("Not sure").click();
+  const headline = card().querySelector(".verdict-headline");
+  assert.ok(headline.classList.contains("verdict-conservative"), "danger tone");
+  assert.match(
+    document.getElementById("live-status").textContent,
+    /play it safe/i,
+    "the conservative verdict is announced"
+  );
+});
+
+test("basic charging annotates the shell with an any-cable hint", () => {
+  pick("Check another cable").click();
+  pick("Phone").click();
+  pick("Just basic charging").click();
+  pick("A marking or icon").click();
+  const headline = card().querySelector(".verdict-headline");
+  assert.ok(headline.classList.contains("verdict-any"), "the reassuring verdict");
+  const strong = document.querySelector("#diagram .callout-strong text");
+  assert.equal(strong.textContent, "any cable", "the marking-free callout label");
+});
