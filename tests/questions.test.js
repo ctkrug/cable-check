@@ -38,6 +38,15 @@ test("the marking question includes a conservative not-sure option", () => {
   assert.equal(notSure.value, MARKINGS.UNSURE);
 });
 
+test("no question repeats an option label or value", () => {
+  for (const question of QUESTIONS) {
+    const labels = question.options.map((o) => o.label);
+    const values = question.options.map((o) => o.value);
+    assert.equal(new Set(labels).size, labels.length, `${question.id} labels unique`);
+    assert.equal(new Set(values).size, values.length, `${question.id} values unique`);
+  }
+});
+
 test("need options map onto the decision tree's needs", () => {
   const need = QUESTIONS.find((q) => q.id === "need");
   const values = need.options.map((o) => o.value);
