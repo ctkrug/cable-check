@@ -40,6 +40,17 @@ index.html  →  app.boot()
 - **Preview:** `npm run dev` (serves `site/` statically), or open `site/index.html` directly.
 - **Test:** `npm test` (Node's built-in runner; `app.integration.test.js` drives the real app in jsdom).
 - **Lint:** `npm run lint`. **Both:** `npm run check`.
+- **Coverage:** `node --test --experimental-test-coverage tests/` — 100% lines on every
+  `site/` module (core logic 100% branch).
+
+## Test layout
+
+| Area | Files |
+|---|---|
+| Pure logic | `decision-tree`, `quiz`, `questions`, `combinations`, `conservative`, `invariants`, `immutability`, `adversarial` |
+| DOM behaviour (jsdom) | `app.integration`, `app.robustness` (stale-click / abuse), `app.verdict-space` (full UI matrix), `app.perf` (annotation-leak guard), `diagram.dom` |
+| Sound (stubbed WebAudio) | `sound`, `sound.mock`, `sound.storage` |
+| Shell & bundle contracts | `shell` (a11y landmarks + relative paths), `brand` (favicon/manifest), `theme` (JS↔CSS tokens), `diagram` (markup), `no-audio-assets` |
 
 ## Deploy
 
