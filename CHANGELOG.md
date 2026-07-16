@@ -3,7 +3,7 @@
 All notable changes to this project are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [1.0.0] - 2026-07-16
 
 ### Fixed
 - A fast double-tap on an already-answered option no longer records a stale
@@ -13,9 +13,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - The "Skip to the questions" link now moves keyboard focus into the card.
 
 ### Added
-- Hardened test suite (92 tests, 100% line coverage on every module):
+- Below-the-fold guide and five-question FAQ answering the real search intent
+  (100W charging, Thunderbolt, cable compatibility), a GitHub source link, and
+  a portfolio footer.
+- Hardened test suite (100 tests, 100% line coverage on every module):
   adversarial-input, UI-abuse, full DOM verdict matrix, WebAudio synthesis via
-  a stub, annotation-leak, and shell/brand/theme contract guards.
+  a stub, annotation-leak, and shell/brand/theme/marketing contract guards.
 
 - Full three-tap quiz flow: device → need → visible marking resolves to one
   plain-language verdict, with conservative handling of "not sure" answers.
