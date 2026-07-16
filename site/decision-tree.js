@@ -115,18 +115,18 @@ export function getVerdict(need, marking = MARKINGS.UNSURE) {
   if (need === NEEDS.CHARGE_STANDARD) {
     const verdict = STANDARD_VERDICTS[marking];
     if (!verdict) {
-      throw new Error(`Unknown marking answer: ${marking}`);
+      throw new Error(`Unknown marking answer: ${String(marking)}`);
     }
     return verdict;
   }
 
   const spec = NEED_SPEC[need];
   if (!spec) {
-    throw new Error(`Unknown need: ${need}`);
+    throw new Error(`Unknown need: ${String(need)}`);
   }
   const verdict = markingVerdicts(spec)[marking];
   if (!verdict) {
-    throw new Error(`Unknown marking answer: ${marking}`);
+    throw new Error(`Unknown marking answer: ${String(marking)}`);
   }
   return verdict;
 }
