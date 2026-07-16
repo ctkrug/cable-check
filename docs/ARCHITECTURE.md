@@ -14,7 +14,7 @@ runner. Served from a subpath, so every asset reference is relative.
 | `sound.js` | WebAudio-synthesized tick + verdict chime (zero audio files). Lazy `AudioContext`, guarded for environments without WebAudio; mute state persists in `localStorage`. |
 | `diagram.js` | The hero: an inline-SVG USB-C plug. `createDiagram(el)` mounts it and returns `annotate()` / `clear()`; callouts stroke-draw to named plug anchors, honouring `prefers-reduced-motion`. |
 | `app.js` | Wiring only. Renders each question as themed buttons, annotates the diagram as answers land, resolves to a verdict (chime + amber callout + live-region announcement), and handles restart and the mute toggle. |
-| `index.html` | Shell: fonts, wordmark, mute toggle, skip link, live region, two-panel stage. |
+| `index.html` | Shell: fonts, wordmark, mute toggle, skip link, live region, two-panel stage, plus a below-the-fold guide/FAQ and portfolio footer for search. |
 | `styles.css` | The blueprint direction from `docs/DESIGN.md` — tokens, grid canvas, card, button states, responsive layout. |
 
 ## Data flow
@@ -50,7 +50,7 @@ index.html  →  app.boot()
 | Pure logic | `decision-tree`, `quiz`, `questions`, `combinations`, `conservative`, `invariants`, `immutability`, `adversarial` |
 | DOM behaviour (jsdom) | `app.integration`, `app.robustness` (stale-click / abuse), `app.verdict-space` (full UI matrix), `app.perf` (annotation-leak guard), `diagram.dom` |
 | Sound (stubbed WebAudio) | `sound`, `sound.mock`, `sound.storage` |
-| Shell & bundle contracts | `shell` (a11y landmarks + relative paths), `brand` (favicon/manifest), `theme` (JS↔CSS tokens), `diagram` (markup), `no-audio-assets` |
+| Shell & bundle contracts | `shell` (a11y landmarks + relative paths), `brand` (favicon/manifest), `theme` (JS↔CSS tokens), `marketing` (SEO head + guide/FAQ + cross-promo), `diagram` (markup), `no-audio-assets` |
 
 ## Deploy
 
