@@ -38,6 +38,21 @@ test("the marking answer alone selects the status for a given need", () => {
   }
 });
 
+test("every marked verdict repeats the exact marking inside its detail copy", () => {
+  // The headline can be skimmed past; the detail must still spell out the
+  // physical thing to look for so the answer is self-contained.
+  for (const need of NEEDS_LIST) {
+    if (need === NEEDS.CHARGE_STANDARD) continue;
+    for (const marking of MARKINGS_LIST) {
+      const verdict = getVerdict(need, marking);
+      assert.ok(
+        verdict.detail.includes(verdict.marking),
+        `${need}/${marking} detail should name ${verdict.marking}`
+      );
+    }
+  }
+});
+
 test("every verdict names a physical marking when it names one at all", () => {
   const physical = /lightning|5A|DP|monitor|SS10|SS20|Thunderbolt|icon|marking/i;
   for (const need of NEEDS_LIST) {
