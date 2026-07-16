@@ -17,6 +17,8 @@ export default [
     languageOptions: {
       globals: {
         console: "readonly",
+        URL: "readonly",
+        localStorage: "writable",
       },
     },
   },
