@@ -4,6 +4,9 @@
   "private": true,
   "description": "A 10-second quiz that tells you which USB-C cable in your drawer to use.",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "test": "node --test tests/",
     "lint": "eslint site tests"
