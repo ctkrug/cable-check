@@ -95,6 +95,12 @@ function boot() {
   }
 
   function choose(question, option) {
+    // Ignore a click whose question is no longer the current one: a re-rendered
+    // card can leave a detached button behind, and a fast double-tap would
+    // otherwise record a stale answer in the wrong slot and crash the verdict.
+    if (quiz.done || quiz.currentStep !== question.id) {
+      return;
+    }
     playTick();
     if (question.id === "device") {
       diagram.annotate({ anchor: "cable", label: option.label });
