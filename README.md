@@ -1,5 +1,8 @@
 # Cable Check
 
+[![CI](https://github.com/ctkrug/cable-check/actions/workflows/ci.yml/badge.svg)](https://github.com/ctkrug/cable-check/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A 10-second quiz for the drawer full of unlabeled USB-C cables. Answer three quick
 questions — what device, what you need (100W charging, 4K video, 10Gbps transfer) — and
 get back exactly one thing: the spec or physical marking to look for on the cable you
