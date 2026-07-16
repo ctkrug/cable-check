@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#0b1524" />
-  <title>Cable Check — which USB-C cable do you need?</title>
+  <title>Cable Check: does your USB-C cable support 100W charging?</title>
   <meta
     name="description"
-    content="A 10-second quiz that tells you exactly which USB-C cable in your drawer to use."
+    content="A USB-C cable compatibility checker: three questions tell you if your cable does 100W charging, 4K video, or 10Gbps transfer, and the exact marking to look for."
   />
-  <meta property="og:title" content="Cable Check — which USB-C cable do you need?" />
+  <meta property="og:title" content="Cable Check: does your USB-C cable support 100W charging?" />
   <meta
     property="og:description"
-    content="A 10-second quiz that tells you exactly which USB-C cable in your drawer to use."
+    content="A USB-C cable compatibility checker: three questions tell you if your cable does 100W charging, 4K video, or 10Gbps transfer, and the exact marking to look for."
   />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
@@ -62,6 +62,78 @@
       </div>
     </section>
   </main>
+
+  <section class="guide" aria-labelledby="guide-title">
+    <div class="guide-inner">
+      <h2 id="guide-title" class="guide-title">
+        How to tell what a USB-C cable can do
+      </h2>
+      <p>
+        Every USB-C cable uses the same oval plug, so you cannot tell by looking
+        whether the one in your hand does 100W charging, 4K video, or fast file
+        transfer. Two cables that seem identical can behave completely
+        differently: one carries full laptop power and a 4K display, the next
+        only trickle-charges a phone. The quiz above asks what you are plugging
+        in and what you need, then gives you the one marking to check on the
+        plug, so you can pick the right cable in about ten seconds.
+      </p>
+
+      <h3 class="faq-q">Does my USB-C cable support 100W charging?</h3>
+      <p>
+        Look for a lightning-bolt icon or a "5A" marking printed near the plug or
+        on the cable jacket. Cables rated for 100W (and the newer 240W) include
+        an e-marker chip and are labelled for 5A. An unmarked cable usually caps
+        out around 60W, which is fine for a phone but short for most laptops. If
+        there is no marking at all, treat it as a 60W cable.
+      </p>
+
+      <h3 class="faq-q">How can I tell if a USB-C cable is Thunderbolt?</h3>
+      <p>
+        Check the plug for a small Thunderbolt icon: a lightning bolt inside a
+        squared outline, often with a 3 or 4 next to it. A Thunderbolt cable also
+        handles 10Gbps or 20Gbps transfer and 4K (or higher) video. No
+        Thunderbolt icon and no "SS10" or "SS20" marking means the cable is likely
+        limited to slow USB 2.0 speeds and may carry no video signal at all.
+      </p>
+
+      <h3 class="faq-q">Is there a USB-C cable compatibility checker?</h3>
+      <p>
+        Yes. The quiz at the top of this page is exactly that. Instead of reading
+        a spec chart, you answer three questions and get one specific marking to
+        look for on the cable you already own. It runs entirely in your browser,
+        with no login and nothing to install.
+      </p>
+
+      <h3 class="faq-q">Why do two identical-looking cables behave differently?</h3>
+      <p>
+        USB-C is a connector shape, not a single standard. The same plug can hide
+        USB 2.0, USB 3.2, USB4, Thunderbolt, DisplayPort Alt Mode, and several
+        power tiers. Manufacturers rarely print the full capability on the cable,
+        so the only reliable clues are the small markings (5A, DP, SS10, a
+        Thunderbolt icon) near the plug.
+      </p>
+
+      <h3 class="faq-q">What do markings like 5A, DP, and SS10 mean?</h3>
+      <p>
+        5A signals a high-power cable good for 100W charging. DP or a small
+        monitor icon means the cable carries a DisplayPort video signal for an
+        external display. SS10 or SS20 (SuperSpeed) marks 10Gbps or 20Gbps data
+        transfer. A plain cable with none of these is a basic charge-and-sync
+        cable.
+      </p>
+
+      <a class="github-cta" href="https://github.com/ctkrug/cable-check">
+        View the source on GitHub
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <a class="footer-source" href="https://github.com/ctkrug/cable-check">GitHub</a>
+    <a class="footer-portfolio" href="https://apps.charliekrug.com">
+      More by Charlie Krug → apps.charliekrug.com
+    </a>
+  </footer>
 
   <p id="live-status" class="sr-only" role="status" aria-live="polite"></p>
 
