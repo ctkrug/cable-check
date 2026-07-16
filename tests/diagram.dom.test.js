@@ -68,3 +68,17 @@ test("the amber tone strokes with the support accent, not the primary", () => {
   const line = host.querySelector(".callout-strong line");
   assert.equal(line.getAttribute("stroke"), "var(--accent-support)");
 });
+
+test("prefers-reduced-motion skips the stroke-draw animation", () => {
+  // Installed last so the animated-path tests above run under the default.
+  globalThis.matchMedia = (query) => ({
+    matches: query.includes("reduce"),
+    media: query,
+  });
+  const { host, diagram } = fresh();
+  diagram.annotate({ anchor: "shell", label: "instant" });
+  const line = host.querySelector(".callout line");
+  assert.equal(line.style.strokeDasharray, "none", "no dash offset to animate");
+  assert.equal(line.style.transition, "", "no transition scheduled");
+  delete globalThis.matchMedia;
+});
