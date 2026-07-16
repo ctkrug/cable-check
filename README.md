@@ -27,17 +27,18 @@ and land on a single answer like:
 
 No scrolling, no comparison table, no jargon to decode first.
 
-## Planned features
+## Features
 
-- **Three-tap decision tree** covering the common real-world needs: fast charging
-  (60 W / 100 W+), external displays (4K/60, 4K/120, multi-monitor), and fast data
-  transfer (480 Mbps / 5 Gbps / 10 Gbps / 20 Gbps / 40 Gbps).
-- **Plain-language verdicts** — the physical marking or icon to look for, not just a
-  spec name.
-- **"Not sure" escape hatches** at every step so a user who doesn't know their device's
-  exact spec still gets a useful, conservative answer.
-- **Restart / redo** to check a second cable without reloading the page.
-- Zero dependencies, zero backend, works offline once loaded.
+- **Three-tap decision tree** covering the common real-world needs: fast charging,
+  driving a display, fast file transfer, and plain basic charging.
+- **Plain-language verdicts** — the physical marking or icon to look for (a
+  lightning bolt, `5A`, `DP`, `SS10`), never a raw spec name.
+- **"Not sure" escape hatches** at every step, always steering to the safer,
+  conservative answer when the input is uncertain.
+- **Live-annotating plug diagram** that gets marked up as you answer, with
+  synthesized tap/verdict sound and a persistent mute toggle.
+- **Restart** to check a second cable without reloading the page.
+- Zero runtime dependencies, zero backend, works offline once loaded.
 
 ## Stack
 
@@ -54,8 +55,9 @@ npm run dev     # preview site/ locally
 
 ## Status
 
-Early scaffold — see [`docs/VISION.md`](docs/VISION.md) for the full design rationale,
-[`docs/DESIGN.md`](docs/DESIGN.md) for the visual direction, and
+Core flow complete and tested end-to-end. See [`docs/VISION.md`](docs/VISION.md) for
+the design rationale, [`docs/DESIGN.md`](docs/DESIGN.md) for the visual direction,
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the module map, and
 [`docs/BACKLOG.md`](docs/BACKLOG.md) for the build plan. Deployment notes live in
 [`docs/DEPLOY.md`](docs/DEPLOY.md).
 
