@@ -105,3 +105,10 @@ test("muted playback builds no audio graph at all", () => {
   assert.equal(chime.count, 0, "a muted chime makes no sound");
   setMuted(false);
 });
+
+test("unmuting restores the audio graph", () => {
+  setMuted(true);
+  assert.equal(newOscillatorsFrom(() => playTick()).count, 0);
+  setMuted(false);
+  assert.equal(newOscillatorsFrom(() => playTick()).count, 1, "sound is back");
+});
