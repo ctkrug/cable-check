@@ -10,6 +10,13 @@
     name="description"
     content="A 10-second quiz that tells you exactly which USB-C cable in your drawer to use."
   />
+  <meta property="og:title" content="Cable Check — which USB-C cable do you need?" />
+  <meta
+    property="og:description"
+    content="A 10-second quiz that tells you exactly which USB-C cable in your drawer to use."
+  />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,6 +43,14 @@
       <div id="diagram" class="diagram-panel" aria-hidden="false"></div>
 
       <div class="card-panel">
+        <noscript>
+          <p class="noscript">
+            Cable Check needs JavaScript for its three-tap quiz. In short: for
+            fast charging look for a lightning-bolt or “5A” marking; for video a
+            “DP” or monitor icon; for fast transfer “SS10”, “SS20”, or a
+            Thunderbolt icon.
+          </p>
+        </noscript>
         <header class="brand">
           <h1 class="wordmark">Cable<span class="wordmark-accent">Check</span></h1>
           <p class="tagline">
