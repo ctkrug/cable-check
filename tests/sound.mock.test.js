@@ -85,3 +85,23 @@ test("a tick builds one square-wave oscillator around 880Hz", () => {
   assert.deepEqual(osc.frequency.events[0], ["set", 880, ctx.currentTime]);
   assert.ok(osc.startedAt !== null && osc.stoppedAt !== null, "it is scheduled");
 });
+
+test("the verdict chime schedules two staggered sine tones", () => {
+  setMuted(false);
+  const { count, ctx } = newOscillatorsFrom(() => playChime());
+  assert.equal(count, 2, "a two-tone chime");
+  const [a, b] = ctx.oscillators.slice(-2);
+  assert.equal(a.type, "sine");
+  assert.equal(b.type, "sine");
+  // The second tone starts later than the first.
+  assert.ok(b.startedAt > a.startedAt, "the tones are staggered in time");
+});
+
+test("muted playback builds no audio graph at all", () => {
+  setMuted(true);
+  const tick = newOscillatorsFrom(() => playTick());
+  const chime = newOscillatorsFrom(() => playChime());
+  assert.equal(tick.count, 0, "a muted tick makes no sound");
+  assert.equal(chime.count, 0, "a muted chime makes no sound");
+  setMuted(false);
+});
