@@ -55,7 +55,9 @@ npm run dev     # preview site/ locally
 
 ## Status
 
-Core flow complete and tested end-to-end. See [`docs/VISION.md`](docs/VISION.md) for
+Core flow complete and QA-hardened — 92 tests at 100% line coverage across every
+module, covering the pure logic, the DOM flow, adversarial input, and the shell
+contracts. See [`docs/VISION.md`](docs/VISION.md) for
 the design rationale, [`docs/DESIGN.md`](docs/DESIGN.md) for the visual direction,
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the module map, and
 [`docs/BACKLOG.md`](docs/BACKLOG.md) for the build plan. Deployment notes live in
